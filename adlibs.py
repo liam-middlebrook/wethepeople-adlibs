@@ -23,7 +23,7 @@ dataID = random.randint(0, len(data['results'])-1)
 description = data['results'][dataID]['body']
 
 #Tell the user the tile of the petition
-print "Title: " + data['results'][dataID]['title']
+print("Title: " + data['results'][dataID]['title'])
 
 #tokenize the description into a list of words
 textData = nltk.word_tokenize(description)
@@ -34,7 +34,7 @@ textTags = nltk.pos_tag(textData)
 #remove duplicates from the tag list
 manTags = list(set(textTags))
 
-print "Please enter a word that fits each type given:"
+print("Please enter a word that fits each type given:")
 outputString = description
 
 #Lets add up to fifteen changed words in the petition
@@ -50,21 +50,21 @@ for index in range(15):
         index-=1
         continue
     elif wordType == "NN" or wordType == "WP":
-        print "TYPE: NOUN"
+        print ("TYPE: NOUN")
     elif wordType == "NNS":
-        print "TYPE: NOUN (PLURAL)"
+        print ("TYPE: NOUN (PLURAL)")
     elif wordType == "NNP":
-        print "TYPE: PRONOUN"
+        print ("TYPE: PRONOUN")
     elif wordType == "PRP" or wordType == "PRPS" or wordType == "PRP$":
-        print "TYPE: PROPER NOUN"
+        print ("TYPE: PROPER NOUN")
     elif wordType == "VB" or wordType == "VBG" or wordType == "VBP" or wordType == "VBZ" or wordType == "VBN":
-        print "TYPE: VERB"
+        print ("TYPE: VERB")
     elif wordType == "JJ":
-        print "TYPE: ADJECTIVE"
+        print ("TYPE: ADJECTIVE")
     elif wordType == "RB":
-        print "TYPE: ADVERB"
+        print ("TYPE: ADVERB")
     else:
-        print "TYPE: UNKNOWN"
+        print ("TYPE: UNKNOWN")
     
     #Get a list of all the indices at which a word/tag pair occurs
     replacementIndices = [i for i, x in enumerate(textTags) if x == randTag]
@@ -75,7 +75,7 @@ for index in range(15):
     #Now lets replace each occurrence of that word with Butts!
     outputString = outputString.replace(" "+randTag[0]+" ", " "+replWord+" ")
 
-print "\n\nHere is the origional petition: \n"
-print description
-print "\n\nHere is what you created\n"
-print outputString
+print("\n\nHere is the origional petition: \n")
+print (description)
+print ("\n\nHere is what you created\n")
+print (outputString)
